@@ -7,20 +7,23 @@ import java.util.Scanner;
  * Professor: Professor Walauskis
  *
  * @author Kiara
- * @version 1.0
+ * @version 2.0
  */
 
 public class Menu {
 
     private List list;
-
-    private ArrayList<Item> ToDoList;
+    private TaskNumber generator;
+    private ArrayList<Task> ToDoList;
+    private ArrayList<Integer> idList;
 
     Scanner scanner = new Scanner(System.in);
 
-    public Menu(List list, ArrayList<Item> ToDoList) {
-        this.list = list;
+    public Menu(ArrayList<Task> ToDoList, ArrayList<Integer> idList, List list, TaskNumber generator) {
+        this.idList = idList;
         this.ToDoList = ToDoList;
+        this.list = list;
+        this.generator = generator;
     }
 
     public void toDoMenu() {
@@ -43,21 +46,29 @@ public class Menu {
                   Option 1
                   Add Item
                  */
-                    System.out.println("Add an new item.");
+                    System.out.println("Add an new task:");
                     boolean addAnother;
                     //while (true) {
                     scanner.nextLine();
                     System.out.println("To-Do Item:");
                     String subject = scanner.nextLine();
                     System.out.println(subject);
+                    generator.assignID();
+                    int taskNumber = generator.getCurrentID();
+                    System.out.println(taskNumber);
+                    Task task = new Task(subject, taskNumber);
+                    list.addTask(task);
 
-                    Item item = new Item(subject);
-                    list.addItem(item);
-
-                    //}
                     break;
 
-                case 2:
+                case 3:
+                    System.out.println("To-Do List:");
+                    for(Task currentTask : list.getTasks()) {
+                        System.out.println(currentTask.getTaskNumber() + " " + currentTask.getTask());
+                    }
+                    break;
+
+                case 4:
                     System.out.println("Goodbye!");
                     System.exit(0);
                     break;

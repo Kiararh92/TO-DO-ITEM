@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -8,17 +7,17 @@ import java.util.ArrayList;
  * @verison 1.0
  */
 public class List {
-    public ArrayList<Item> ToDoList;
+    public ArrayList<Task> ToDoList;
 
-    public List(ArrayList<Item> ToDoList){
+    public List(ArrayList<Task> ToDoList){
         this.ToDoList = ToDoList;
     }
 
-    public void addItem( Item item) {
-        ToDoList.add(item);
+    public void addTask( Task task) {
+        ToDoList.add(task);
     }
 
-    public ArrayList<Item> getItems(){
-        return this.ToDoList;
+    public ArrayList<Task> getTasks(){
+        return ToDoList;
     }
 }
