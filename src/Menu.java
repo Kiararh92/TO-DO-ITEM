@@ -7,25 +7,26 @@ import java.util.Scanner;
  * Professor: Professor Walauskis
  *
  * @author Kiara
- * @version 2.0
+ * @version 3.0
  */
 
 public class Menu {
 
     private List list;
-    private TaskNumber generator;
     private DeleteTask deleteTask;
+    private AddTask addTask;
     private ArrayList<Task> ToDoList;
     private ArrayList<Integer> idList;
 
     Scanner scanner = new Scanner(System.in);
 
-    public Menu(ArrayList<Task> ToDoList, ArrayList<Integer> idList, List list, TaskNumber generator, DeleteTask deleteTask) {
+    public Menu(ArrayList<Task> ToDoList, ArrayList<Integer> idList, List list, DeleteTask deleteTask,
+                    AddTask addTask) {
         this.idList = idList;
         this.ToDoList = ToDoList;
         this.list = list;
-        this.generator = generator;
         this.deleteTask = deleteTask;
+        this.addTask = addTask;
     }
 
     public void toDoMenu() {
@@ -44,27 +45,12 @@ public class Menu {
             switch (choice) {
 
                 case 1:
-                /*
-                  Option 1
-                  Add Item
-                 */
-                    System.out.println("Add an new task:");
-                    boolean addAnother;
-                    //while (true) {
-                    scanner.nextLine();
-                    System.out.println("To-Do Item:");
-                    String subject = scanner.nextLine();
-                    System.out.println(subject);
-                    generator.assignID();
-                    int taskNumber = generator.getCurrentID();
-                    System.out.println(taskNumber);
-                    Task task = new Task(subject, taskNumber);
-                    list.addTask(task);
-
+                    addTask.addTask();
                     break;
 
                 case 2:
                    deleteTask.removeViaTaskNumber();
+                   break;
 
                 case 3:
                     System.out.println("To-Do List:");

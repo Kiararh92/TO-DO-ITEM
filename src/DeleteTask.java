@@ -8,26 +8,26 @@ import java.util.Scanner;
  * Professor: Professor Walauskis
  *
  * @author Kiara
- * @version 1.0
+ * @version 2.0
  *
- * @param taskID id number of task to delete
  */
 public class DeleteTask {
-    private final ArrayList<Task> ToDoList;
-   // private final ArrayList<List> idList;
+
 
     private final List list;
+    public ArrayList<Integer> idList;
     int taskID;
 
-    public DeleteTask(ArrayList<Task> ToDoList,List list) {
-        this.ToDoList = ToDoList;
+
+    public DeleteTask(List list, ArrayList<Integer> idList) {
         this.list = list;
+        this.idList = idList;
     }
 
     public void removeViaTaskNumber() {
 
         Scanner scanner = new Scanner(System.in);
-        boolean found;
+        boolean found = false;
 
         while(true) {
             System.out.println("Delete an task:");
@@ -40,21 +40,17 @@ public class DeleteTask {
                 if (task.getTaskNumber() == taskID) {
                     iterator.remove();
                     System.out.println("Task deleted!");
+                    idList.remove(Integer.valueOf(taskID));
                     found = true;
+                    break;
                 } else {
                     found = false;
                 }
-                if(!found) {
-                    System.out.println("Task not found.");
-                }
-                break;
+            }
+            if(!found) {
+                System.out.println("Task not found.");
             }
             break;
         }
-
-        for(Task task : list.getTasks()) {
-            System.out.println(task.getTaskNumber() + " " + task.getTask());
-        }
     }
-
 }

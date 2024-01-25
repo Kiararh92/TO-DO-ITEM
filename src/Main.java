@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Professor: Professor Walauskis
  *
  * @author Kiara
- * @version 2.0
+ * @version 3.0
  */
 
 public class Main {
@@ -18,10 +18,11 @@ public class Main {
 
         List list = new List(ToDoList);
         TaskNumber generator = new TaskNumber(idList);
-        DeleteTask deleteTask = new DeleteTask(ToDoList, list);
+        DeleteTask deleteTask = new DeleteTask(list, idList);
+        AddTask addTask = new AddTask(list, generator);
 
 
-        Menu menu = new Menu(ToDoList, idList, list, generator, deleteTask);
+        Menu menu = new Menu(ToDoList, idList, list, deleteTask, addTask);
 
         menu.toDoMenu();
     }
