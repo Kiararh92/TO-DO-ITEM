@@ -14,16 +14,18 @@ public class Menu {
 
     private List list;
     private TaskNumber generator;
+    private DeleteTask deleteTask;
     private ArrayList<Task> ToDoList;
     private ArrayList<Integer> idList;
 
     Scanner scanner = new Scanner(System.in);
 
-    public Menu(ArrayList<Task> ToDoList, ArrayList<Integer> idList, List list, TaskNumber generator) {
+    public Menu(ArrayList<Task> ToDoList, ArrayList<Integer> idList, List list, TaskNumber generator, DeleteTask deleteTask) {
         this.idList = idList;
         this.ToDoList = ToDoList;
         this.list = list;
         this.generator = generator;
+        this.deleteTask = deleteTask;
     }
 
     public void toDoMenu() {
@@ -60,6 +62,9 @@ public class Menu {
                     list.addTask(task);
 
                     break;
+
+                case 2:
+                   deleteTask.removeViaTaskNumber();
 
                 case 3:
                     System.out.println("To-Do List:");

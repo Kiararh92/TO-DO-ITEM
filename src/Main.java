@@ -18,9 +18,10 @@ public class Main {
 
         List list = new List(ToDoList);
         TaskNumber generator = new TaskNumber(idList);
+        DeleteTask deleteTask = new DeleteTask(ToDoList, list);
 
 
-        Menu menu = new Menu(ToDoList, idList, list, generator);
+        Menu menu = new Menu(ToDoList, idList, list, generator, deleteTask);
 
         menu.toDoMenu();
     }
