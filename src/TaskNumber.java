@@ -1,27 +1,30 @@
 import java.util.ArrayList;
 
 /**
- * This class represents the handling of each task number.
- *
- * Course: Software Development II
- * Professor: Professor Walauskis
+ * This class represents assigning a unique task number to each task.
  *
  * @author Kiara
- * @version 2.0
- *
- *
+ * @version 3.0
  */
 public class TaskNumber {
     int nextID = 101;
     int currentID = 0;
     public ArrayList<Integer> idList;
-
     boolean found;
 
+    /**
+     * Creates and assigns a task number to a specific task
+     *
+     * @param idList An ArrayList of taskNumbers
+     */
     public TaskNumber(ArrayList<Integer> idList){
         this.idList = idList;
     }
 
+    /**
+     * Creates a unique ID number
+     * Checks if that ID is available or already assigned to another task.
+     */
     public void assignID(){
         nextID = 101;
         while(found) {
@@ -41,14 +44,20 @@ public class TaskNumber {
             }
     }
 
-//    public void assignID(){
-//       currentID = nextID++;
-//    }
-
+    /**
+     * Retrieves the current ID number.
+     *
+     * @return the unique ID number to be assigned as the TaskNumber
+     */
     public int getCurrentID() {
         return currentID;
     }
 
+    /**
+     * Sets the current ID number
+     *
+     * @param currentID current ID number.
+     */
     public void setCurrentID(int currentID) {
         this.currentID = currentID;
     }

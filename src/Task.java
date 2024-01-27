@@ -1,13 +1,9 @@
 /**
  * This class represents a task with a specific subject and id number.
  *
- * Course: Software Development II
- * Professor: Professor Walauskis
  * @author Kiara Howard
  * @version 3.0
- *
  */
-
 
 public class Task {
 

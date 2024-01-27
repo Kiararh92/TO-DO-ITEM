@@ -1,7 +1,7 @@
 import java.util.ArrayList;
-
 /**
- * This is the Main class of the To-Do Application
+ * Main class of the To-Do List.
+ * Initializes the application and starts the main menu.
  *
  * Course: Software Development II
  * Professor: Professor Walauskis
@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
+        // Initializes the application components and dependencies.
         ArrayList<Task> ToDoList = new ArrayList<>();
         ArrayList<Integer> idList = new ArrayList<>();
 
@@ -20,10 +21,11 @@ public class Main {
         TaskNumber generator = new TaskNumber(idList);
         DeleteTask deleteTask = new DeleteTask(list, idList);
         AddTask addTask = new AddTask(list, generator);
+        ViewList viewList = new ViewList(list);
 
+        Menu menu = new Menu(ToDoList, idList, list, deleteTask, addTask, viewList);
 
-        Menu menu = new Menu(ToDoList, idList, list, deleteTask, addTask);
-
+        // Starts the main application menu
         menu.toDoMenu();
     }
 }

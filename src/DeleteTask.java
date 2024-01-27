@@ -4,11 +4,8 @@ import java.util.Scanner;
 /**
  * This class represents the delete feature.
  *
- * Course: Software Development II
- * Professor: Professor Walauskis
- *
  * @author Kiara
- * @version 2.0
+ * @version 3.0
  *
  */
 public class DeleteTask {
@@ -18,12 +15,21 @@ public class DeleteTask {
     public ArrayList<Integer> idList;
     int taskID;
 
-
+    /**
+     * Delete a task via Task Number.
+     *
+     * @param list List object that contains the task objects
+     * @param idList An ArrayList of taskNumbers
+     */
     public DeleteTask(List list, ArrayList<Integer> idList) {
         this.list = list;
         this.idList = idList;
     }
 
+    /**
+     * Selects a task via task number.
+     * Deletes the task from the ToDoList, along with its subject and task number.
+     */
     public void removeViaTaskNumber() {
 
         Scanner scanner = new Scanner(System.in);
